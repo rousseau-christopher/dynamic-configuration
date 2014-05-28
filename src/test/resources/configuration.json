@@ -1,0 +1,22 @@
+{
+	"mrl" : {
+		"team" : ["ITA", "ALJZ"],
+		"type" : ["P2", "XDCAM"],
+		"completion" : {
+			"subject" : "Completion P2/XDCAM {filename}"
+		},
+		"creation" : {
+			"subject" : "Creation P2/XDCAM {filename}"
+		},
+		"to" : "christopher.rousseau@smartjog.com"
+	},
+	"hbs" : {
+		"dir" : "HBS"
+	},
+	"evs" : {
+		"transcription" : {
+			"to" : "christopher.rousseau@smartjog.com",
+			"subject" : "You received file {filename} for transcription"
+		}
+	}
+}
