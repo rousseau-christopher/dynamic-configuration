@@ -21,7 +21,7 @@ public class JsonWatcherTest {
 
   @Test
   public void test() throws JsonProcessingException, IOException {
-    watcher.loadFile();
+    // watcher.loadFile();
   }
 
 }

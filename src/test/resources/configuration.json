@@ -1,6 +1,10 @@
 {
 	"mrl" : {
 		"team" : ["ITA", "ALJZ"],
+		"teamName" : {
+			"ITA" : "Italie",
+			"ALJZ" : "Al Jazeera"
+		},
 		"type" : ["P2", "XDCAM"],
 		"completion" : {
 			"subject" : "Completion P2/XDCAM {filename}"
