@@ -37,7 +37,6 @@ public class MrlService {
 
   @DynamicConfiguration("mrl.team")
   public void setTeam(String[] teams) {
-    logger.debug(teams.toString());
     directoryNames = teams;
   }
 

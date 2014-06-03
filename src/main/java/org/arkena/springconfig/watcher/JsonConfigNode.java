@@ -67,4 +67,9 @@ public class JsonConfigNode implements ConfigNode {
     return result;
   }
 
+  @Override
+  public String toString() {
+    return jsonNode.toString();
+  }
+
 }

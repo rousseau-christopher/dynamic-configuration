@@ -71,8 +71,9 @@ public class DynamicConfigurationBeanPostProcessor implements BeanPostProcessor,
 
   public void setNode(ConfigNode node) {
     if (mapSetter.containsKey(node.getKey())) {
-      logger.debug("Set key [{}]", node.getKey());
+      logger.debug("Setting key [{}] with value [{}]", node.getKey(), node);
       for (PropertyData prop : mapSetter.get(node.getKey())) {
+        logger.debug("  -> bean [{}] updated", prop.beanName);
         try {
           if (prop.pd.getPropertyType() == String.class) {
             prop.pd.getWriteMethod().invoke(prop.bean, node.asString());
@@ -112,7 +113,6 @@ public class DynamicConfigurationBeanPostProcessor implements BeanPostProcessor,
 
   public static class PropertyData {
     private String             key;
-    @SuppressWarnings("unused")
     private String             beanName;
     private Object             bean;
     private PropertyDescriptor pd;

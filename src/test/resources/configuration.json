@@ -3,17 +3,18 @@
 		"idUser" : 465
 	},
 	"mrl" : {
-		"team" : ["ITA", "ALJZ"],
+		"team" : ["ITA", "ALJZ", "FRA", "ff"],
 		"teamName" : {
 			"ITA" : "Italie",
-			"ALJZ" : "Al Jazeera"
+			"ALJZ" : "Al Jazeera",
+			"FRA" : "France"
 		},
-		"type" : ["P2", "XDCAM"],
+		"type" : ["P2", "XDCAM", "MAT"],
 		"completion" : {
-			"subject" : "Completion P2/XDCAM {filename}"
+			"subject" : "Completion P2/XDCAM {filename}."
 		},
 		"creation" : {
-			"subject" : "Creation P2/XDCAM {filename}"
+			"subject" : "Creation P2/XDCAM {filename}."
 		},
 		"to" : "christopher.rousseau@smartjog.com"
 	},
