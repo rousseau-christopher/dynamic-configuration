@@ -44,6 +44,18 @@ public class JsonConfigNode implements ConfigNode {
     }
   }
 
+  // @Override
+  // public String[] asArrayString() {
+  // String[] result = new String[jsonNode.size()];
+  // int i = 0;
+  // Iterator<Entry<String, JsonNode>> entries = jsonNode.fields();
+  // while (entries.hasNext()) {
+  // Entry<String, JsonNode> entry = entries.next();
+  // result[i++] = entry.getKey();
+  // }
+  // return result;
+  // }
+
   @Override
   public Map<String, String> asMapStrings() {
     Map<String, String> result = new HashMap<String, String>();

@@ -16,6 +16,12 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+/**
+ * TODO add directory/file watcher to update data then file change
+ * 
+ * @author Christopher Rousseau
+ * 
+ */
 public class JsonWatcher {
   private static final Logger logger = LoggerFactory.getLogger(JsonWatcher.class);
 
@@ -41,7 +47,7 @@ public class JsonWatcher {
           currentNode = currentNode.get(token);
         }
         else {
-          throw new KeyNotFoundException("Cannot found key [" + key + "], [" + token + "] not found");
+          throw new KeyNotFoundException("Cannot find key [" + key + "], [" + token + "] not found");
         }
       }
       dynamicConfiguration.setNode(new JsonConfigNode(key, currentNode));

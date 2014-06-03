@@ -13,39 +13,39 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.BeansException;
+import org.springframework.beans.factory.BeanInitializationException;
 import org.springframework.beans.factory.config.BeanPostProcessor;
 import org.springframework.core.Ordered;
-import org.springframework.util.ReflectionUtils;
 
 public class DynamicConfigurationBeanPostProcessor implements BeanPostProcessor, Ordered {
 
   private static final Logger logger = LoggerFactory.getLogger(DynamicConfigurationBeanPostProcessor.class);
 
+  /**
+   * TODO : rewrite this code to support any method (not only setter) with one arguments only and properties.
+   */
   @Override
   public Object postProcessBeforeInitialization(final Object bean, final String beanName) throws BeansException {
     logger.debug("-------------- Before init of [{}]", beanName);
-    Class<?> clazz = bean.getClass();
 
-    ReflectionUtils.doWithMethods(clazz, new ReflectionUtils.MethodCallback() {
-      public void doWith(Method method) {
-        if (method.isAnnotationPresent(DynamicConfiguration.class)) {
-          logger.debug("Method [{}] of bean [{}] found", method.getName(), beanName);
-          try {
-            PropertyDescriptor pd = BeanUtils.findPropertyForMethod(method);
-            if (pd == null) {
-              throw new IllegalArgumentException("@DynamicConfiguration need a setter to work, [" + method.getName() + "()] found instead !!");
-            }
-            DynamicConfiguration annotation = method.getAnnotation(DynamicConfiguration.class);
-
-            logger.debug("Register setter [" + method.getName() + "()] with key [" + annotation.value() + "] for bean [" + beanName + "]");
-            PropertyData data = new PropertyData(annotation.value(), beanName, bean, pd);
-            registerSetter(data);
-          } catch (Throwable e) {
-            logger.error(e.getMessage(), e);
+    for (Method method : bean.getClass().getDeclaredMethods()) {
+      if (method.isAnnotationPresent(DynamicConfiguration.class)) {
+        logger.debug("Method [{}] of bean [{}] found", method.getName(), beanName);
+        try {
+          PropertyDescriptor pd = BeanUtils.findPropertyForMethod(method);
+          if (pd == null) {
+            throw new IllegalArgumentException("@DynamicConfiguration need a setter to work, [" + method.getName() + "()] found instead !!");
           }
+          DynamicConfiguration annotation = method.getAnnotation(DynamicConfiguration.class);
+
+          logger.debug("Register setter [" + method.getName() + "()] with key [" + annotation.value() + "] for bean [" + beanName + "]");
+          PropertyData data = new PropertyData(annotation.value(), beanName, bean, pd);
+          registerSetter(data);
+        } catch (Throwable e) {
+          throw new BeanInitializationException("Cannot initialise bean [" + beanName + "]", e);
         }
       }
-    });
+    }
 
     return bean;
   }
@@ -83,8 +83,11 @@ public class DynamicConfigurationBeanPostProcessor implements BeanPostProcessor,
           else if (prop.pd.getPropertyType() == Map.class) {
             prop.pd.getWriteMethod().invoke(prop.bean, node.asMapStrings());
           }
+          else if (prop.pd.getPropertyType() == int.class || prop.pd.getPropertyType() == Integer.class) {
+            prop.pd.getWriteMethod().invoke(prop.bean, Integer.parseInt(node.asString()));
+          }
           else {
-            logger.error("unknow Type [{}]", prop.pd.getPropertyType());
+            logger.error("unknown Type [{}]", prop.pd.getPropertyType());
           }
         } catch (Throwable e) {
           logger.error(e.getMessage(), e);
@@ -92,7 +95,7 @@ public class DynamicConfigurationBeanPostProcessor implements BeanPostProcessor,
       }
     }
     else {
-      logger.error("Cannot found key [{}]", node.getKey());
+      logger.error("Cannot find key [{}]", node.getKey());
     }
   }
 

@@ -20,6 +20,20 @@ public class MrlService {
 
   public Map<String, String>  teamName;
 
+  public int                  idUser;
+
+  public Integer              idUserInteger;
+
+  @DynamicConfiguration("wc.idUser")
+  public void setIdUser(int idUser) {
+    this.idUser = idUser;
+  }
+
+  @DynamicConfiguration("wc.idUser")
+  public void setIdUserInteger(Integer idUser) {
+    this.idUserInteger = idUser;
+  }
+
 
   @DynamicConfiguration("mrl.team")
   public void setTeam(String[] teams) {

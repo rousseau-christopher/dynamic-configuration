@@ -40,6 +40,9 @@ public class JsonWatcherTest {
     assertEquals(expectedMap, service.teamName);
 
     assertArrayEquals(expectedArray, hbsService.teams);
+
+    assertEquals(465, service.idUser);
+    assertEquals(Integer.valueOf(465), service.idUserInteger);
   }
 
 }
