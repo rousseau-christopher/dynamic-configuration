@@ -1,6 +1,7 @@
 package config;
 
 import org.arkena.springconfig.DynamicConfigurationBeanPostProcessor;
+import org.arkena.springconfig.DynamicConfigurationSetterBeanPostProcessor;
 import org.arkena.springconfig.watcher.JsonWatcher;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -12,7 +13,7 @@ public class UnitTestConfiguration {
 
   @Bean
   public DynamicConfigurationBeanPostProcessor dynamicConfiguration() {
-    return new DynamicConfigurationBeanPostProcessor();
+    return new DynamicConfigurationSetterBeanPostProcessor();
   }
 
   @Bean

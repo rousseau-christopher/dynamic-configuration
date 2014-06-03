@@ -49,9 +49,14 @@ public class JsonWatcher implements Runnable {
   }
 
   @PostConstruct
-  public void init() throws JsonProcessingException, IOException, KeyNotFoundException {
-    loadFile();
-    startWatcher();
+  public void init() {
+    try {
+      loadFile();
+      startWatcher();
+    } catch (Exception e) {
+      logger.error("Error initializing watcher", e);
+      throw new RuntimeException(e);
+    }
   }
 
   private Map<String, String> cachedConfigValues = new HashMap<>();
@@ -129,7 +134,7 @@ public class JsonWatcher implements Runnable {
             }
           }
         } catch (InterruptedException | IOException e) {
-          e.printStackTrace();
+          logger.error("Error in json Watcher", e);
         }
 
       } while (key.reset());
