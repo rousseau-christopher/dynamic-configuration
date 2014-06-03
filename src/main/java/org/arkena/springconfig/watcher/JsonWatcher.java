@@ -28,7 +28,9 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 /**
- * TODO add directory/file watcher to update data then file change
+ * Json file configuration watcher.
+ * 
+ * This watcher will call the DynamicConfigurationBeanPostProcessor with updates node then the file change
  * 
  * @author Christopher Rousseau
  * 
