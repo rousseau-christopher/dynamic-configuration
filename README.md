@@ -1,7 +1,7 @@
 ## Dynamic Spring-framework configuration
 
 The purpose of this project is to create a library for dynamic configuration of a java spring project. 
-It use the same idea behind @Value annotation to inject configuration data in spring Component.
+It use the same idea behind @Value annotation to inject and update configuration data in spring Component every time the configuration file change
 
 ### Exemple
 
