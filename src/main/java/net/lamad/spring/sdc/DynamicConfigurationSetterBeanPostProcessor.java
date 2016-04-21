@@ -1,4 +1,4 @@
-package org.arkena.springconfig;
+package net.lamad.spring.sdc;
 
 import java.beans.PropertyDescriptor;
 import java.lang.reflect.Method;
@@ -7,14 +7,13 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.arkena.springconfig.annotation.DynamicConfiguration;
-import org.arkena.springconfig.watcher.ConfigNode;
+import net.lamad.spring.sdc.annotation.DynamicConfiguration;
+import net.lamad.spring.sdc.watcher.ConfigNode;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.BeanInitializationException;
-import org.springframework.core.Ordered;
 
 /**
  * Implementation that support only setter method for injection of configuration value
@@ -122,7 +121,7 @@ public class DynamicConfigurationSetterBeanPostProcessor implements DynamicConfi
 
   @Override
   public int getOrder() {
-    return Ordered.LOWEST_PRECEDENCE;
+    return LOWEST_PRECEDENCE;
   }
 
   public static class PropertyData {

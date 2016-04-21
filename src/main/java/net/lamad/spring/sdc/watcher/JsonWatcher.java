@@ -1,4 +1,4 @@
-package org.arkena.springconfig.watcher;
+package net.lamad.spring.sdc.watcher;
 
 import java.io.IOException;
 import java.nio.file.FileSystems;
@@ -15,8 +15,8 @@ import java.util.Map;
 
 import javax.annotation.PostConstruct;
 
-import org.arkena.springconfig.DynamicConfigurationBeanPostProcessor;
-import org.arkena.springconfig.exception.KeyNotFoundException;
+import net.lamad.spring.sdc.DynamicConfigurationBeanPostProcessor;
+import net.lamad.spring.sdc.exception.KeyNotFoundException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

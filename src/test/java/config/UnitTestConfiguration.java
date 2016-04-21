@@ -1,8 +1,8 @@
 package config;
 
-import org.arkena.springconfig.DynamicConfigurationBeanPostProcessor;
-import org.arkena.springconfig.DynamicConfigurationSetterBeanPostProcessor;
-import org.arkena.springconfig.watcher.JsonWatcher;
+import net.lamad.spring.sdc.DynamicConfigurationBeanPostProcessor;
+import net.lamad.spring.sdc.DynamicConfigurationSetterBeanPostProcessor;
+import net.lamad.spring.sdc.watcher.JsonWatcher;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;

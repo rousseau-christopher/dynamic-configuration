@@ -1,8 +1,8 @@
-package org.arkena.springconfig.watcher;
+package net.lamad.spring.sdc.watcher;
 
 import java.util.Map;
 
-import org.arkena.springconfig.exception.NotAnArrayException;
+import net.lamad.spring.sdc.exception.NotAnArrayException;
 
 public interface ConfigNode {
   String getKey();

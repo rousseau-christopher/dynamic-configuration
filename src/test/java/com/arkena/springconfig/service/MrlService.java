@@ -2,7 +2,7 @@ package com.arkena.springconfig.service;
 
 import java.util.Map;
 
-import org.arkena.springconfig.annotation.DynamicConfiguration;
+import net.lamad.spring.sdc.annotation.DynamicConfiguration;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;

@@ -1,11 +1,11 @@
-package org.arkena.springconfig.watcher;
+package net.lamad.spring.sdc.watcher;
 
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Map.Entry;
 
-import org.arkena.springconfig.exception.NotAnArrayException;
+import net.lamad.spring.sdc.exception.NotAnArrayException;
 
 import com.fasterxml.jackson.databind.JsonNode;
 

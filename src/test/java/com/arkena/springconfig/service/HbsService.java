@@ -1,6 +1,6 @@
 package com.arkena.springconfig.service;
 
-import org.arkena.springconfig.annotation.DynamicConfiguration;
+import net.lamad.spring.sdc.annotation.DynamicConfiguration;
 import org.springframework.stereotype.Service;
 
 @Service

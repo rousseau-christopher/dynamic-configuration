@@ -1,6 +1,6 @@
-package org.arkena.springconfig;
+package net.lamad.spring.sdc;
 
-import org.arkena.springconfig.watcher.ConfigNode;
+import net.lamad.spring.sdc.watcher.ConfigNode;
 import org.springframework.beans.factory.config.BeanPostProcessor;
 import org.springframework.core.Ordered;
 

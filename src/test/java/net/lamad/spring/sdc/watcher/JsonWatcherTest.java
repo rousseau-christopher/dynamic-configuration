@@ -1,4 +1,4 @@
-package org.arkena.springconfig.watcher;
+package net.lamad.spring.sdc.watcher;
 
 import java.io.IOException;
 import java.util.HashMap;

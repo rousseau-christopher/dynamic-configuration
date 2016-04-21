@@ -1,4 +1,4 @@
-package org.arkena.springconfig.annotation;
+package net.lamad.spring.sdc.annotation;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
