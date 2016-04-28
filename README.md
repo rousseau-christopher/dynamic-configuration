@@ -1,3 +1,6 @@
+# Deprecated
+will be incorporate in dynamic value. A project that will use File, zookeeper, consul,etc.. to update configuration at runtime
+
 ## Dynamic Spring-framework configuration
 
 The purpose of this project is to create a library for dynamic configuration of a java spring project. 
